@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Project 2 Report</title>
+    <style>
+      :root {
+        --color-neutral-95: hsl(220 10% 95%);
+        --color-neutral-90: hsl(220 10% 90%);
+        --color-neutral-80: hsl(220 10% 80%);
+        --color-neutral-70: hsl(220 10% 70%);
+        --color-neutral-60: hsl(220 10% 60%);
+        --color-neutral-50: hsl(220 10% 50%);
+        --color-neutral-40: hsl(220 10% 40%);
+        --color-neutral-30: hsl(220 10% 30%);
+        --color-neutral-20: hsl(220 10% 20%);
+        --color-neutral-10: hsl(220 10% 10%);
+      }
+
+      html {
+        font: 100%/1.5 system-ui;
+        counter-reset: figure;
+        background: var(--color-neutral-95);
+        max-width: min(75vw, 80em);
+        margin: 0 auto;
+      }
+
+      /* Headings */
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        line-height: 1.1;
+        font-weight: 600;
+        text-wrap: balance;
+      }
+
+      h1,
+      h2 {
+        border-bottom: 1px solid var(--color-neutral-80);
+        padding-bottom: 0.2em;
+      }
+
+      h1 {
+        margin-block: 1em 0.5rem;
+        font-size: clamp(2.5em, 150% + 2vh + 2vw, 10vmin);
+        font-weight: 800;
+
+        small {
+          display: block;
+          width: fit-content;
+          padding: 0.2em 0.5em;
+          margin-inline: auto;
+          color: white;
+          background: var(--color-neutral-40);
+          font-size: 40%;
+          text-transform: uppercase;
+          white-space: nowrap;
+        }
+      }
+
+      h2 {
+        font-size: 180%;
+        color: var(--color-neutral-30);
+      }
+
+      h3 {
+        font-size: 130%;
+      }
+
+      /* Lists */
+
+      ul,
+      ol {
+        padding-inline-start: 2em;
+      }
+
+      li {
+        &::marker {
+          color: var(--color-neutral-40);
+        }
+
+        + li {
+          margin-top: 0.2em;
+        }
+      }
+
+      /* Sectioning elements */
+
+      header {
+        padding-block: 1em;
+        text-align: center;
+      }
+
+      main {
+        background: white;
+        color: var(--color-neutral-20);
+        border-radius: 1rem;
+        padding: 0.1rem 2rem;
+      }
+
+      /* Figures */
+
+      figure {
+        margin: 1em 0;
+        padding: 0.5rem;
+        margin-inline: -0.5em;
+        border: 1px solid var(--color-neutral-80);
+        box-shadow: 0 0.1em 0.2em var(--color-neutral-95);
+        text-align: center;
+        background: white;
+
+        > figcaption {
+          font: 500 75% var(--font-sans);
+          background: var(--color-neutral-95);
+          padding: 0.5rem;
+          margin: -0.5rem;
+          margin-top: 0.5rem;
+          counter-increment: figure;
+          text-align: left;
+
+          &::before {
+            content: 'Figure ' counter(figure) ': ';
+            font-weight: bold;
+            color: var(--color-neutral-40);
+          }
+
+          a:not(:hover, :focus, :active) {
+            color: inherit;
+            text-decoration: underline;
+            text-decoration-color: color-mix(
+              in lab,
+              currentColor,
+              transparent 70%
+            );
+          }
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>
+        <small>Assignment 4</small>
+        Persuasive or Deceptive Visualization?
+      </h1>
+
+      <p><strong>Brandon Chu</strong> — <em>brandonchu23@gmail.com</em></p>
+    </header>
+
+    <main>
+      <h2>Proposition: Are complaints filed by Black complainants disproportionately dismissed as unsubstantiated?</h2>
+
+      <section>
+        <h3>FOR the Proposition</h3>
+
+        <figure>
+          <img src="unfaithful.png" alt="" style="max-width: 800px; height: auto;"/>
+          <figcaption>Figure appearing to indicate that complaints submitted by Black people are more often flagged as unsubstantiated.</figcaption>
+        </figure>
+
+        <p>Design Decisions and Rationale:</p>
+
+        <table border="1">
+          <thead>
+            <tr>
+              <th>Design Choice</th>
+              <th>Deception Score</th>
+              <th>Rationale</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Use of raw counts instead of proportions/percentages</td>
+              <td>-2.0</td>
+              <td>Hides the fact that Black complainants make up a majority of the data provided. This would naturally lead to more unsubstantiated complaints, as well as substantiated ones. This is the primary decision in this graph that makes it deceptive, the rest of the design choices only serve to complement this decision.</td>
+            </tr>
+            <tr>
+              <td>Thick red line with rest of lines muted</td>
+              <td>-1.0</td>
+              <td>This choice draws attention to the "focus" of the visualization, without necessarily labeling it as such. Moderately deceptive since the reader is instantly drawn to what the graphmakers (me) want them to focus on without providing a reason yet. Red chosen because it indicates urgency and danger, or that something is out of the ordinary-even if the data itself isn't actually extraordinary. Dilution is applied twice - first with Seaborns muted color palette and second with a manual adjustment of brightness.</td>
+            </tr>
+            <tr>
+              <td>Lack of tick marks / gridlines </td>
+              <td>-0.5</td>
+              <td>Reduces the readers ability to accurately gauge the severity of the problem described. Decided to do this mostly to clean up the graph but could be mild to moderately deceptive.</td>
+            </tr>
+            <tr>
+              <td> Label of peak at 2013</td>
+              <td>-0.5</td>
+              <td> Mildy deceptive since it distracts from the main problem of the graph(that raw counts are used instead of proportions) in an attempt to steal a breath of legitimacy. Could be interpreted as earnest if done in good faith. </td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </section>
+
+      <section>
+        <h3>AGAINST the Proposition</h3>
+
+        <figure>
+          <img src="faithful.png" alt="" style="max-width: 800px; height: auto;"/>
+          <figcaption>Figure appearing to indicate that complaints submitted are substantiated relatively independent of race.</figcaption>
+        </figure>
+
+        <p>Design Decisions and Rationale:</p>
+
+        <table border="1">
+          <thead>
+            <tr>
+              <th>Design Choice</th>
+              <th>Deception Score</th>
+              <th>Rationale</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Normalization by total count and conversion to percentages</td>
+              <td>2.0</td>
+              <td>Very earnest - accurately reflects disproportionality claims by controlling for complaint volume. Conversion to percentages since the general population is more familiar with percentages than proportions.</td>
+            </tr>
+            <tr>
+              <td>Consistent color palette with equal brightness</td>
+              <td>1.0</td>
+              <td>This choice allows each line to receive equal visual attention, letting the data speak for itself. Uses seaborn's color palette. </td>
+            </tr>
+            <tr>
+              <td>Gridlines clearly shown with every year marked </td>
+              <td>1.0</td>
+              <td>Increases overall visual clarity and allows the viewer to accurately see slope and prevents exaggeration. Used Matplotlib's ticker. </td>
+            </tr>
+            <tr>
+              <td>Use of a rolling average</td>
+              <td>-0.5</td>
+              <td> Somewhat deceptive since it distorts the actual data slightly, but it's done in the name of visual clarity. Rolling average uses window size of 3, or the current year and past two years for smoothness. </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>Final Reflection</h2>
+
+        <p>
+          My initial idea for my prompt was whether Black complainants filed a disproportionate amount of unsubstantiated claims, with my deceptive visualization claiming that they did so. However, I ended up feeling that neither political party would really ask such a pointed and charged question. I reframed the question—yet used the same data and graphs—to instead critique the NYPD’s judicial process of substantiating claims, which I felt was a much more relevant political dialogue.
+          </p>
+          
+          <p>
+          This was a very fun project for me. Surprisingly, I found the deceptive visualization much more fun and challenging than the earnest one. I felt like I had to put much more effort into that one to get my point across, since I was clearly doing it in bad faith. I had some trouble thinking of what I could do to make my earnest visualization stand out—I ended up clearly indicating every year using Matplotlib’s ticker and implementing a rolling average, since the lines were going a little crazy on my initial implementation of that graph.
+          </p>
+          
+          <p>
+          I used pandas, matplotlib, and seaborn for most of the visualization. I used Excalidraw to finish off the graph with captions within the graph, since I found it was pretty hard to do that cleanly in Python. I dropped all rows except <code>'year_received'</code>, <code>'complainant_ethnicity'</code>, and <code>'board_disposition'</code>, and filtered out the races that received very little responses as well as "Unknown", "Other Race", and "Refused". I also took out 2019 and 2020 from the data, since there were very few rows logged in these years.
+          I then applied a <code>groupby</code> function with year and race and aggregated based on the sum of the unsubstantiated results, and pivoted the table. For the deceptive visualization, I desaturated the base colors and adjusted transparency to be very low except for the line representing Black complainants, which I made bright red and set to width 5. I adjusted the legend back to the normal colors and line width to avoid drawing attention to this deception. I then removed the spines, gridlines, and axis lines to both clean up the graph and make it harder to gauge the true distance between the data.
+          For my faithful visualization, I applied much of the same initial process, but instead used proportional data by dividing the number of unsubstantiated complaints by the total number of complaints. I then used ticker formatting to make every year visible, and applied a rolling average when the lines got too messy.
+        </p>
+          
+      </section>
+    </main>
+  </body>
+</html>
